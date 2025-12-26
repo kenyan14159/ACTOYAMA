@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  /* Color Palette: Cerulean Air (Minimalist White & Blue) */
+  --color-pure-white: #FFFFFF;
+  --color-stride-blue: #0044CC;
+  --color-sky-mist: #F0F4FF;
+  --color-soot-black: #111111;
+
+  /* Background & Foreground mappings */
+  --background: var(--color-pure-white);
+  --foreground: var(--color-soot-black);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-pure-white: var(--color-pure-white);
+  --color-stride-blue: var(--color-stride-blue);
+  --color-sky-mist: var(--color-sky-mist);
+  --color-soot-black: var(--color-soot-black);
+
+  --font-sans: var(--font-noto-sans-jp), sans-serif;
+  --font-display: var(--font-sora), sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* アクセシビリティ: スキップリンク */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* フォーカススタイルの強化 */
+*:focus-visible {
+  outline: 2px solid var(--color-stride-blue);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Lenis Recommended CSS */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
