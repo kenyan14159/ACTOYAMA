@@ -3,7 +3,15 @@ import { useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 // SLIDES配列をコンポーネント外に定義して、再レンダリング時に再作成されないようにする
-const SLIDES = [
+type Slide = {
+    title: string
+    subtitle: string
+    details: string
+    subDetail?: string
+    imageColor: string
+}
+
+const SLIDES: Slide[] = [
     {
         title: "2025 白馬クロカン遠征\n(7/26~27)",
         subtitle: "駅伝の部\n中学生男女 優勝・ 小学生第10位",
@@ -17,7 +25,7 @@ const SLIDES = [
         details: "2025年シーズンも各自の目標をしっかり持って頑張ろう！",
         imageColor: "from-stride-blue to-cyan-600"
     }
-] as const
+]
 
 export default function MainSlider() {
     const [currentSlide, setCurrentSlide] = useState(0)
@@ -59,16 +67,16 @@ export default function MainSlider() {
 
             {/* Navigation */}
             <div className="absolute bottom-10 right-6 md:right-10 flex gap-4 z-20">
-                <button 
-                    onClick={prevSlide} 
+                <button
+                    onClick={prevSlide}
                     aria-label="前のスライドへ"
                     className="group relative w-14 h-14 flex items-center justify-center rounded-full border border-white/20 hover:bg-white hover:text-stride-blue transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
                 >
                     <ChevronLeft size={24} />
                     <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Previous</span>
                 </button>
-                <button 
-                    onClick={nextSlide} 
+                <button
+                    onClick={nextSlide}
                     aria-label="次のスライドへ"
                     className="group relative w-14 h-14 flex items-center justify-center rounded-full border border-white/20 hover:bg-white hover:text-stride-blue transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
                 >
