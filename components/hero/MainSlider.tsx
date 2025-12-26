@@ -51,7 +51,7 @@ export default function MainSlider() {
                         <div className="text-base md:text-lg leading-loose opacity-90 whitespace-pre-wrap border-l-2 border-white/20 pl-6 max-w-3xl">
                             {SLIDES[currentSlide].details}
                         </div>
-                        {SLIDES[currentSlide].subDetail && (
+                        {'subDetail' in SLIDES[currentSlide] && SLIDES[currentSlide].subDetail && (
                             <p className="mt-8 text-xl font-bold italic text-sky-200">
                                 {SLIDES[currentSlide].subDetail}
                             </p>
